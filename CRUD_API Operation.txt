@@ -1,0 +1,62 @@
+API test:
+
+---------------------Post:--------------
+URl:"/api/users?page=2";
+
+JSON:users
+{
+    "name": "morpheus",
+    "job": "leader"
+}
+
+----Verify post request:
+			//Create  or generate data from json via helper
+            User userHeler = CreateObject.Generate();
+			
+			var postresponce = httpUtil.PostRequest("/api/users?page=2", httpUtil.SerializeToJson(new  user);
+            postresponce.StatusCode.Should().Be(200);
+			
+
+
+
+
+------------Put-------------
+
+URL: "/api/users/2";
+ var updateResponse = apiHelper.updateUser(name, job);
+
+            //Assert
+            Boolean actual = updateResponse.ResponseBody.Contains("
+			
+			"name": "morpheus",
+			"job": "zion resident",
+			"updatedAt": "2021-05-18T12:57:22.064Z");
+
+            actual.Should().BeTrue();
+			 updateResponse.StatusCode.Should().Be(200);
+
+
+
+
+
+------------------Get:List USERS----------------------------
+
+URl:"/api/users?page=2";
+
+//Verified Get request:
+
+ var getUserResponse = apiHelperUser.GetSingleObject("/api/users?page=2");
+ getUserResponse.StatusCode.Should().Be(200);
+ 
+            
+
+--------------Delete:--------------------------
+URL: "/api/users?page=2";
+
+         string URL = "api/users/2";
+         var deleteresponse = apiHelper.DeleteObject(UserDetails, URL);
+         return deleteresponse;
+        
+     	 deleteResponse.ResponseBody.Should().Contain("true");
+		 deleteResponse.StatusCode.Should().Be(204);
+
